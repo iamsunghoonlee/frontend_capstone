@@ -1,3 +1,0 @@
-<img/>
-
-export default Header;
