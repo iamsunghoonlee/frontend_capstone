@@ -1,3 +1,5 @@
+import React from "react";
+
 function Body () {
     return (
         <div class="main_container">
@@ -19,7 +21,7 @@ function Specials() {
 function CustomersSay() {
     return (
         <article class="art1">
-            <h3>Article1</h3>
+            <h1>Article1</h1>
             <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
         </article>
     );
@@ -28,29 +30,76 @@ function CustomersSay() {
 function Chicago() {
     return(
         <div class="location">
-            <h3>Chicago</h3>
+            <h1>Chicago</h1>
             <p>We are located in Chicago</p>
         </div>
     );
 }
+function BookingForm(props) {
+    const [formData, setFormData] = React.useState({date:"", time:"", guests:"", occasion:""});
+    // const [availableTimes, setAvailableTimes] = React.useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
 
-function BookingPage(){
+    function changeHandler(e){
+        setFormData({...formData, [e.target.name]:e.target.value});
+        console.log(e.target.name);
+        console.log(e.target.name);
+    };
+
+    function submitHandler(e){
+        e.preventDefault();
+        // props.onAdd(formData);
+        setFormData({date:"", time:"", number:"", occasion:""})
+   
+    };
+
+    return (
+        <>
+            <h1>Book a Table</h1>
+            <p>Book a table for your special occasion</p>
+            <form className="booking-form" onSubmit={submitHandler}>
+                <label htmlFor="res-date">Choose date</label>
+                <input type="date" id="res-date" name="date" value={formData.date} onChange={changeHandler}/>
+                
+                <label htmlFor="res-time">Choose time</label>
+                <select id="res-time" name="time" value={formData.time} onChange={changeHandler}>
+                    {props.availableTimes.map(time => (
+                        <option>{time}</option>
+                    ))};
+                </select>
+                
+                <label htmlFor="guests">Number of guests</label>
+                <input type="number" name="guests" placeholder="Guest Number" min="1" max="10" id="guests" value={formData.guests} onChange={changeHandler}/>
+                
+                <label htmlFor="occasion">Occasion</label>
+                <select id="occasion" name="occasion" value={formData.occasion} onChange={changeHandler}>
+                    <option>Birthday</option>
+                    <option>Anniversary</option>
+                </select>    
+                <input type="submit" value="Make Your reservation"/>
+            </form>
+        </>
+    );
+};
+
+
+function BookingPage(props){
     return (
         <div class="booking">
-            <h3>Book a Table</h3>
-            <p>Book a table for your special occasion</p>
+            <BookingForm availableTimes={props.availableTimes}/>
         </div>
     );
 }
 
 function Main () {
+    const [availableTimes, setAvailableTimes] = React.useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
+
     return(
         <>
             <Body/>
             <Specials/>
+            <BookingPage availableTimes={availableTimes} onChange = {setAvailableTimes}/>
             <CustomersSay/>
             <Chicago/>
-            <BookingPage/>
         </>
     );
 }

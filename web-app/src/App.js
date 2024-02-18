@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import Homepage from './Homepage'
-import AboutMe from './AboutMe'
 import Main from './Main';
+import AboutMe from './AboutMe'
+import Menu from './Menu'
 
 // function App() {
 //   return (
@@ -28,16 +28,19 @@ import Main from './Main';
 function Nav() {
   return (
       <div>
+        
         <nav className="nav">
+          <img src="./logo_lm512.png" className="app-logo"/>
           <Link to="/" className="nav-item">Homepage</Link>
           <Link to="/main" className="nav-item">Main</Link>
           <Link to="/about-me" className="nav-item">AboutMe</Link>
+          <Link to="/menu" className="nav-item">Menu</Link>
         </nav>
         <Routes>
           <Route path="/" element={<Homepage />}/>
           <Route path="/main" element={<Main />}/>
           <Route path="/about-me" element={<AboutMe />}/>
-          
+          <Route path="/menu" element={<Menu />}/>
         </Routes>
       </div>
   );

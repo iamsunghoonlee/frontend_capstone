@@ -2,8 +2,16 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.app-logo {
+  height: 3vmin;
   pointer-events: none;
 }
 

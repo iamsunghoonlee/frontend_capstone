@@ -1,6 +1,8 @@
 function Homepage() {
     return (
-        <h1>Welcome to Little Lemon</h1>
+        <div>
+            <h1>Welcome to Little Lemon</h1>
+        </div>
     );
 };
 
