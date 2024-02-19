@@ -1,4 +1,5 @@
 import React from "react";
+import { useReducer } from "react";
 
 function Body () {
     return (
@@ -91,13 +92,28 @@ function BookingPage(props){
 }
 
 function Main () {
-    const [availableTimes, setAvailableTimes] = React.useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
+    // const [availableTimes, setAvailableTimes] = React.useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
+
+    // const initializeTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'] //you need "Initial State" for Reducer
+    const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
+
+    const updatedTimes = (state, action) => {
+        if (action) return state;
+        return state;
+    }
+    
+    // const initializeTimes = () => {
+    //     const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+    //     return availableTimes;
+    // }
+
+    const [state, dispatch] = useReducer(updatedTimes, availableTimes);
 
     return(
         <>
             <Body/>
             <Specials/>
-            <BookingPage availableTimes={availableTimes} onChange = {setAvailableTimes}/>
+            <BookingPage availableTimes={availableTimes} onChange = {() => dispatch()}/>
             <CustomersSay/>
             <Chicago/>
         </>
