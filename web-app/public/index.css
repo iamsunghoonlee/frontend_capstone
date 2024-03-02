@@ -1,0 +1,50 @@
+.container {
+    background-color: burlywood;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+.main_container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 0.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-template-rows: auto;
+}
+
+.article_container {
+    display: grid;
+    grid-template-columns:  auto auto auto;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    grid-template-rows: auto;
+}
+
+.art1 {
+    background-color: burlywood;
+    margin: 2px;
+    padding: 0.5rem;
+    /* display: flex; */
+}
+
+.art1 h3 {
+    background-color: rgb(118, 248, 5);
+    width:fit-content;
+    /* margin: 2px;
+    display: flex; */
+}
+
+.art2 {
+    background-color: rgb(183, 206, 88);
+    margin: 2px;
+    display: flex;
+}
+
+.art3 {
+    background-color: rgb(88, 186, 206);
+    margin: 2px;
+    display: flex;
+}
+

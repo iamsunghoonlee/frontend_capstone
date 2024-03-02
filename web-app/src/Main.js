@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useReducer } from "react";
 
 function Body () {
@@ -92,28 +92,32 @@ function BookingPage(props){
 }
 
 function Main () {
-    // const [availableTimes, setAvailableTimes] = React.useState(['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'])
+    // const [availableTimes, setAvailableTimes] = React.useState([])
 
-    // const initializeTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'] //you need "Initial State" for Reducer
-    const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-
-    const updatedTimes = (state, action) => {
-        if (action) return state;
-        return state;
-    }
+    const initializeTimes = () => {
+        const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
+        return availableTimes;
+    };
     
-    // const initializeTimes = () => {
-    //     const availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00']
-    //     return availableTimes;
-    // }
+    //Reducer Function
+    const updatedTimes = (state, action) => {
+        if (action.type === 'update_time') return state;
+    } 
+    //useReducer
+    const [availableTimes, dispatch] = useReducer(updatedTimes, initializeTimes());
 
-    const [state, dispatch] = useReducer(updatedTimes, availableTimes);
+    useEffect(()=>{
+        fetch('https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js')
+            .then((response) => response.fetchAPI(date))
+            .then((response) => response.fetchAPI(date))
+            // how to receive data from this and update 
+    }, [])
 
     return(
         <>
             <Body/>
             <Specials/>
-            <BookingPage availableTimes={availableTimes} onChange = {() => dispatch()}/>
+            <BookingPage availableTimes={availableTimes} onChange={() => dispatch({type: 'update_time'})}/>
             <CustomersSay/>
             <Chicago/>
         </>
