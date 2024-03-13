@@ -19,10 +19,10 @@ function Specials() {
     );
 }
 
-function CustomersSay() {
+function WeAre() {
     return (
         <article class="art1">
-            <h1>Article1</h1>
+            <h1>We Are</h1>
             <p>We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.</p>
         </article>
     );
@@ -43,7 +43,7 @@ function Main () {
         <>
             <Body/>
             <Specials/>
-            <CustomersSay/>
+            <WeAre/>
             <Chicago/>
         </>
     );
