@@ -19,11 +19,13 @@ h1 {
 
 .res_food {
     grid-column: 2;
+    opacity: 1;
     width: 100%;
     height: 24rem;
     justify-self: end;
     border-radius: 1rem;
     object-fit: cover;
+
 }
 
 .meal-card {
@@ -39,10 +41,28 @@ h1 {
 }
 
 .meal-card-image img {
-width: 100%;
-height: 12.5rem;
-object-fit: cover;
-margin-bottom: 0.9375rem;
+    width: 100%;
+    height: 12.5rem;
+    object-fit: cover;
+    margin-bottom: 0.9375rem;
+    background-color: #FFFFFF;
+}
+
+.overlay {
+    /* position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #bbd5dd;
+}
+
+.meal-card-image:hover .overlay {
+    opacity: 1;
 }
 
 .meal-card-header,
