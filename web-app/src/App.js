@@ -9,6 +9,7 @@ import Menu from './Menu'
 
 function Nav() {
   return (
+      
       <div>
         <nav className="nav">
           <img src="./logo_lm512.png" className="app-logo"/>
