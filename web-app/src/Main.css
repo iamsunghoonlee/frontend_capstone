@@ -5,11 +5,16 @@ h1 {
     text-align: center;
 }
 
+.main_container > p {
+    font-size: 1.25rem;
+    text-align: center;
+}
+
 .we_are > h1 {
     padding: 1.875rem 0 1.875rem 0;
     background-color: #495E57;
     color: #FFFFFF;
-    text-align: center;    
+    text-align: center;
 }
 
 .res_food {
@@ -82,15 +87,6 @@ margin-left: 0.5rem;
     grid-template-rows: auto auto;
     gap: 1.25rem;
 }
-  
-/* .week-specials-header {
-    grid-column: 1 / 4;
-    grid-row: 1;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
-    margin-bottom: 1.875rem;
-} */
   
 .week-specials-header > h1 {
     padding: 1.875rem 0 1.875rem 0;
